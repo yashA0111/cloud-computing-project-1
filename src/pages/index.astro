@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    number: '01', title: 'Pramaan', kind: 'Identity Verification & Public Safety Platform',
+    summary: 'A security-focused, multi-service platform for identity verification workflows—designed around accountable access, verifiable actions, and operational visibility.',
+    built: 'Monorepo application with role-aware authentication, verification flows, audit logging, health checks, and a separate biometric service.',
+    stack: ['React 19', 'NestJS', 'PostgreSQL', 'FastAPI', 'ONNX Runtime', 'Docker Compose'],
+    github: 'https://github.com/yashA0111/pramaan-app/tree/testing', tone: 'project--signal'
+  },
+  {
+    number: '02', title: 'RiskLens', kind: 'Applied ML / Credit Risk Prediction',
+    summary: 'An applied machine-learning project that turns credit-risk prediction into an interpretable product experience.',
+    built: 'Built the data workflow, XGBoost training and evaluation pipeline, SHAP-powered interpretation, and deployed application. Achieved 0.777 AUC in project evaluation.',
+    stack: ['Python', 'XGBoost', 'SHAP', 'Model evaluation', 'Deployment'],
+    github: 'https://github.com/yashA0111/riskLens', live: 'https://risk-lens-theta.vercel.app', tone: 'project--lens'
+  },
+  {
+    number: '03', title: 'Design Essentials', kind: 'Freelance / Client Work',
+    summary: 'A production web presence shaped directly with an architecture client, where the technical work followed business priorities and real operating workflows.',
+    built: 'Translated client requirements into an Astro and Sanity CMS website, with SEO visibility, HubSpot CRM thinking, and workflow automation in view.',
+    stack: ['Astro', 'Sanity CMS', 'SEO', 'HubSpot', 'Workflow automation'],
+    github: 'https://github.com/yashA0111/design-essentials/tree/astro-framework', tone: 'project--client'
+  },
+  {
+    number: '04', title: 'Ignivis', kind: 'FOSS Hack 2026 / PoC',
+    summary: 'A proof of concept for detecting heat stress and environmental risk from computer vision and live environmental signals.',
+    built: 'Framed personalized risk scoring and actionable guidance as a real-world product problem, then independently pitched the PoC to Petpooja’s Business Development team.',
+    stack: ['Computer vision', 'Environmental data', 'Real-time signals', 'Risk scoring'],
+    github: 'https://github.com/yashA0111/Foss-Hack-Ignivis', tone: 'project--heat'
+  }
+];
+
+const tech = [
+  ['Languages', 'Python · TypeScript · JavaScript · C++ · SQL'],
+  ['Backend', 'Node.js · Express.js · NestJS · Spring Boot · FastAPI · REST APIs · JWT · Zod'],
+  ['Frontend', 'React · Next.js · TanStack Start · TanStack Query · Tailwind CSS · Vite · Astro'],
+  ['Databases / Data', 'PostgreSQL · MongoDB · MySQL · Drizzle ORM · Supabase · Redis'],
+  ['AI / ML', 'scikit-learn · XGBoost · SHAP · OpenCV · MediaPipe · ONNX Runtime · RAG'],
+  ['Cloud / DevOps', 'Docker · Docker Compose · Kubernetes · AWS · GCP · Linux · GitHub Actions · CI/CD'],
+  ['Business / Growth', 'AI in Marketing · SEO · B2B Outreach · Lead Generation · HubSpot · Market Research · Workflow Automation']
+];
+
+const notes = ['Designing backend systems beyond CRUD', 'What I learned building a multi-service application', 'From ML model to usable product', 'Where AI meets workflow automation', 'Learning cloud by actually deploying things'];
+---
+
+<BaseLayout>
+  <header class="site-header shell" id="top" aria-label="Main navigation">
+    <a class="wordmark" href="#top" aria-label="Yash Ahuja, home">YA<span>.</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#work">Work</a><a href="#experience">Track record</a><a href="#notes">Notes</a>
+    </nav>
+    <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main-content">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero__topline"><span>Yash Ahuja</span><span>Delhi, India</span><span>CSE / 2024—2028</span></div>
+      <h1 id="hero-title">Building software systems where <em>engineering</em> meets the real world.</h1>
+      <div class="hero__bottom">
+        <p>Backend engineering, AI, cloud and automation—connected through products that have a reason to exist outside the screen.</p>
+        <div class="hero__actions"><a class="button button--solid" href="#work">See selected work <span aria-hidden="true">↓</span></a><a class="text-link" href="https://github.com/yashA0111" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <div class="hero__rule" aria-hidden="true"><span></span><b>01 / 09</b></div>
+    </section>
+
+    <section class="focus section shell" aria-labelledby="focus-title">
+      <div class="section-kicker"><span>01</span><span>Current focus</span></div>
+      <div class="section-intro"><h2 id="focus-title">Where I’m building now.</h2><p>Learning across disciplines, with a bias toward systems that move from a clear problem to a usable outcome.</p></div>
+      <div class="focus-list">
+        <article><span>01</span><h3>Backend Systems</h3><p>APIs, service architectures, data-driven applications, and the system thinking behind a dependable interface.</p></article>
+        <article><span>02</span><h3>Applied AI</h3><p>Machine learning, computer vision, RAG and AI-assisted workflows with a practical application in mind.</p></article>
+        <article><span>03</span><h3>Cloud & Delivery</h3><p>AWS, GCP, Docker, Linux, CI/CD and the operational detail that takes work beyond local development.</p></article>
+        <article><span>04</span><h3>Automation</h3><p>Connecting software, CRM, AI and business processes to reduce friction in everyday workflows.</p></article>
+      </div>
+    </section>
+
+    <section class="work section shell" id="work" aria-labelledby="work-title">
+      <div class="section-kicker"><span>02</span><span>Selected work</span></div>
+      <div class="section-intro work-intro"><h2 id="work-title">Systems, signals<br />and useful delivery.</h2><p>Each project is a different lens on the same question: how can technical work meet a real constraint with care?</p></div>
+      <div class="projects">
+        {projects.map((project) => <article class={`project ${project.tone}`}>
+          <div class="project__visual" aria-hidden="true"><span>{project.number}</span><div class="project__glyph"></div></div>
+          <div class="project__content">
+            <div class="project__label"><span>{project.number} / {project.kind}</span><span class="project__line"></span></div>
+            <h3>{project.title}</h3>
+            <p class="project__summary">{project.summary}</p>
+            <p class="project__built"><b>Built:</b> {project.built}</p>
+            <div class="project__footer"><ul aria-label={`${project.title} technologies`}>{project.stack.map((item) => <li>{item}</li>)}</ul><div class="project__links"><a href={project.github} target="_blank" rel="noreferrer">View code <span aria-hidden="true">↗</span></a>{project.live && <a href={project.live} target="_blank" rel="noreferrer">Live site <span aria-hidden="true">↗</span></a>}</div></div>
+          </div>
+        </article>)}
+      </div>
+    </section>
+
+    <section class="principles section shell" aria-labelledby="principles-title">
+      <div class="section-kicker"><span>03</span><span>How I work</span></div>
+      <h2 id="principles-title">A practical point<br />of view.</h2>
+      <div class="principles-grid">
+        <article><span>01</span><h3>Start with the problem</h3><p>Technology comes after the workflow, people and constraints are understood.</p></article>
+        <article><span>02</span><h3>Build the system, not only the interface</h3><p>Useful applications need APIs, data, deployment and operational thinking behind the UI.</p></article>
+        <article><span>03</span><h3>Connect engineering with the real world</h3><p>Software gets interesting when it meets actual users, processes and constraints.</p></article>
+        <article><span>04</span><h3>Learn by shipping</h3><p>Projects and experiments are where technical understanding becomes tangible.</p></article>
+      </div>
+    </section>
+
+    <section class="experience section shell" id="experience" aria-labelledby="experience-title">
+      <div class="section-kicker"><span>04</span><span>Track record</span></div>
+      <div class="section-intro"><h2 id="experience-title">In the room,<br />and in the build.</h2></div>
+      <div class="timeline">
+        <article><div class="timeline__date">Jul 2026 — Present</div><div><p class="eyebrow">Industry Representative</p><h3>Contriver Autonomous Systems</h3><p>Representing a UAV startup in B2B industry contexts: market research, outreach, positioning and enterprise conversations. Exposure includes Convergence India, Gartex Texprocess, EAW, lead follow-up and product PoC presentation.</p></div></article>
+        <article><div class="timeline__date">Aug 2026 — Present</div><div><p class="eyebrow">Freelance Full-Stack Developer</p><h3>Design Essentials</h3><p>Working directly with an architecture client to turn business goals and operational requirements into a production web presence and an emerging CRM/workflow system.</p></div></article>
+      </div>
+    </section>
+
+    <section class="technology section shell" aria-labelledby="tech-title">
+      <div class="section-kicker"><span>05</span><span>Technology ecosystem</span></div>
+      <div class="section-intro"><h2 id="tech-title">Tools are only useful<br />in context.</h2><p>A working vocabulary across the stack, organized around the jobs each tool helps get done.</p></div>
+      <dl class="tech-list">{tech.map(([domain, items]) => <div><dt>{domain}</dt><dd>{items}</dd></div>)}</dl>
+    </section>
+
+    <section class="notes section shell" id="notes" aria-labelledby="notes-title">
+      <div class="section-kicker"><span>06</span><span>Notes from building</span></div>
+      <div class="section-intro"><h2 id="notes-title">Thoughts still<br />taking shape.</h2><p>A small collection of writing in progress—about systems, products and the things that connect them.</p></div>
+      <div class="notes-list">{notes.map((note, i) => <article><span>0{i + 1}</span><h3>{note}</h3><p>Coming soon</p></article>)}</div>
+    </section>
+
+    <section class="contact shell" id="contact" aria-labelledby="contact-title">
+      <div class="contact__stamp" aria-hidden="true">YA<br /><span>OPEN</span></div>
+      <div><p class="eyebrow">07 / Contact</p><h2 id="contact-title">Let’s build something <em>useful.</em></h2><p>Open to engineering conversations, interesting products, technical collaborations and opportunities where software meets real-world problems.</p><div class="contact__links"><a href="mailto:yashahuja8178@gmail.com">yashahuja8178@gmail.com <span aria-hidden="true">↗</span></a><a href="https://github.com/yashA0111" target="_blank" rel="noreferrer">github.com/yashA0111 <span aria-hidden="true">↗</span></a></div></div>
+    </section>
+  </main>
+  <footer class="footer shell"><span>YASH AHUJA</span><span>Building systems, products and experiments.</span><span>Delhi, India · © 2026</span></footer>
+</BaseLayout>
