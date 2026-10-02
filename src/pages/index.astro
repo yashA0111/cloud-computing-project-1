@@ -7,14 +7,14 @@ const projects = [
     summary: 'A security-focused, multi-service platform for identity verification workflows—designed around accountable access, verifiable actions, and operational visibility.',
     built: 'Monorepo application with role-aware authentication, verification flows, audit logging, health checks, and a separate biometric service.',
     stack: ['React 19', 'NestJS', 'PostgreSQL', 'FastAPI', 'ONNX Runtime', 'Docker Compose'],
-    github: 'https://github.com/yashA0111/pramaan-app/tree/testing', tone: 'project--signal'
+    github: 'https://github.com/yashA0111/pramaan-app/tree/testing', live: 'https://pramaan-app-web-beta.vercel.app/', preview: '/previews/pramaan.png', tone: 'project--signal'
   },
   {
     number: '02', title: 'RiskLens', kind: 'Applied ML / Credit Risk Prediction',
     summary: 'An applied machine-learning project that turns credit-risk prediction into an interpretable product experience.',
     built: 'Built the data workflow, XGBoost training and evaluation pipeline, SHAP-powered interpretation, and deployed application. Achieved 0.777 AUC in project evaluation.',
     stack: ['Python', 'XGBoost', 'SHAP', 'Model evaluation', 'Deployment'],
-    github: 'https://github.com/yashA0111/riskLens', live: 'https://risk-lens-theta.vercel.app', tone: 'project--lens'
+    github: 'https://github.com/yashA0111/riskLens', live: 'https://risk-lens-theta.vercel.app/', preview: '/previews/risklens.png', tone: 'project--lens'
   },
   {
     number: '03', title: 'Design Essentials', kind: 'Freelance / Client Work',
@@ -28,7 +28,7 @@ const projects = [
     summary: 'A proof of concept for detecting heat stress and environmental risk from computer vision and live environmental signals.',
     built: 'Framed personalized risk scoring and actionable guidance as a real-world product problem, then independently pitched the PoC to Petpooja’s Business Development team.',
     stack: ['Computer vision', 'Environmental data', 'Real-time signals', 'Risk scoring'],
-    github: 'https://github.com/yashA0111/Foss-Hack-Ignivis', tone: 'project--heat'
+    github: 'https://github.com/yashA0111/Foss-Hack-Ignivis', live: 'https://ignivis-app.vercel.app/', preview: '/previews/ignivis.png', tone: 'project--heat'
   }
 ];
 
@@ -81,13 +81,23 @@ const notes = ['Designing backend systems beyond CRUD', 'What I learned building
       <div class="section-intro work-intro"><h2 id="work-title">Systems, signals<br />and useful delivery.</h2><p>Each project is a different lens on the same question: how can technical work meet a real constraint with care?</p></div>
       <div class="projects">
         {projects.map((project) => <article class={`project ${project.tone}`}>
-          <div class="project__visual" aria-hidden="true"><span>{project.number}</span><div class="project__glyph"></div></div>
+          <div class="project__visual">
+            <span class="project__number" aria-hidden="true">{project.number}</span>
+            {project.preview ? (
+              <a class="project__preview" href={project.live} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} live site`}>
+                <div class="project__browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>{project.title.toLowerCase()}.app</b><em>↗</em></div>
+                <img src={project.preview} alt={`${project.title} application preview`} loading="lazy" />
+              </a>
+            ) : (
+              <div class="project__confidential" aria-label="Confidential client project"><small>Client work</small><strong>Design<br />Essentials</strong><p>Details available<br />on request.</p><span>Confidential</span></div>
+            )}
+          </div>
           <div class="project__content">
             <div class="project__label"><span>{project.number} / {project.kind}</span><span class="project__line"></span></div>
             <h3>{project.title}</h3>
             <p class="project__summary">{project.summary}</p>
             <p class="project__built"><b>Built:</b> {project.built}</p>
-            <div class="project__footer"><ul aria-label={`${project.title} technologies`}>{project.stack.map((item) => <li>{item}</li>)}</ul><div class="project__links"><a href={project.github} target="_blank" rel="noreferrer">View code <span aria-hidden="true">↗</span></a>{project.live && <a href={project.live} target="_blank" rel="noreferrer">Live site <span aria-hidden="true">↗</span></a>}</div></div>
+            <div class="project__footer"><ul aria-label={`${project.title} technologies`}>{project.stack.map((item) => <li>{item}</li>)}</ul><div class="project__links"><a href={project.github} target="_blank" rel="noreferrer">View code <span aria-hidden="true">↗</span></a>{project.live ? <a href={project.live} target="_blank" rel="noreferrer">Live site <span aria-hidden="true">↗</span></a> : <span class="project__private">Private client work</span>}</div></div>
           </div>
         </article>)}
       </div>
