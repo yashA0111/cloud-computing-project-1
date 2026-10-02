@@ -3,11 +3,11 @@
 ## Live Website
 
 **S3 Website URL:**  
-`[ADD YOUR S3 WEBSITE ENDPOINT HERE]`
+http://yash-cloud-computing-project-1-aws-s3.s3-website-us-east-1.amazonaws.com
 
 ## GitHub Repository
+https://github.com/yashA0111/cloud-computing-project-1
 
-`[ADD YOUR GITHUB REPOSITORY URL HERE]`
 
 ---
 
